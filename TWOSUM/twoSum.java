@@ -1,10 +1,10 @@
-package leetcode.TWOSUM;
+package TWOSUM;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class twoSum {
-
+    //BRUTE FORCE APPROACH
     public static int[] twoSumBruteForce(int[] nums, int target) {
         for(int i=0;i<nums.length;i++)
         {
@@ -18,7 +18,7 @@ public class twoSum {
         }
         return null;        
     }
-
+    //OPTIMAL APPROACH
     public static int[] twoSumOptimal(int[] nums, int target) {
         Map<Integer,Integer>complementIndex=new HashMap<>();
 
