@@ -1,5 +1,8 @@
 package ContainsDuplicate;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class containsDuplicate {
     public static boolean containsDuplicateBruteForce(int[] nums) {
         for(int i=0;i<nums.length-1;i++)
@@ -14,10 +17,22 @@ public class containsDuplicate {
     }
     public static boolean containsDuplicateOptimal(int[] nums)
     {
-        return false;
+        
+            Map<Integer,Integer>count=new HashMap<>();
+              for(int i=0;i<nums.length;i++)
+              {
+                  if(count.get(nums[i])!=null)
+                  {
+                      return true;
+                  }
+                  count.put(nums[i],1);
+              }
+              return false;
+        
     }
     public static void main(String[] args) {
         int[]arr={1,2,3,1};
-        
+        //System.out.println(containsDuplicateBruteForce(arr));
+        System.out.println(containsDuplicateOptimal(arr));
     }
 }
