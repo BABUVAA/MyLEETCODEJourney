@@ -81,7 +81,7 @@ public class maximumSubArray {
     }
 
     public static void main(String[] args) {
-        int []nums={-5,-2,1,2,3,4,5};
+        int []nums={-5,-2,1,2,3,5};
     //  System.out.println(maximumSubArrayBetter(nums));
     //System.out.println(maximumSubArrayOptimal(nums));
         maximumSubArrayPrint(nums);
