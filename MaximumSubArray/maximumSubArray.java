@@ -1,44 +1,89 @@
 package MaximumSubArray;
-
+/**
+ * maximumSubArray
+ */
 public class maximumSubArray {
-    
-    static int approach1(int[]nums)
-    {   int n=0;
-        for (int i = 0; i <= nums.length; i++) {
-            n+=i;
-        }
-        int[][]subArr=new int[n][nums.length];
-            for (int k = 0; k < nums.length; k++) {
-               
-                for (int i = 0; i<nums.length; i++) {
-                    for (int j = k; j <=i; j++) {
-                        subArr[k][j]=nums[j];
-                        System.out.print(nums[j]+",");
-                    }System.out.println();
-        
-                }        
-               
+
+    static int maximumSubArrayBruteForce(int[] nums)
+    {
+        int max=nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {        
+               int sum=0;
+                for (int k = i; k <= j; k++) {
+                    sum+=nums[k];
+                }
+                max=Math.max(max, sum);
             }
-           
-
-         
-        for (int i = 0; i < subArr.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                System.out.print("0-");
-            }System.out.println();
         }
 
-        return 0;  
+        return max;
     }
+
     
+    static int maximumSubArrayBetter(int[] nums)
+    {
+        int max=nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            int sum=0;
+            for (int j = i; j < nums.length; j++) {        
+              sum+=nums[j];    
+              max=Math.max(max, sum);                  
+            }
+            
+        }
+        return max;
+    }
 
+    static int maximumSubArrayOptimal(int[] nums)
+    {
+        int max=nums[0];
+        int sum=0;
+        for (int i = 0; i < nums.length; i++) {
+         sum+=nums[i];
 
+            if(sum>max)
+            {
+                max=sum;
+            }
+            if (sum<0) {
+            sum=0;
+          }         
+        }
+        return max;
+    }
+
+    //PRINTING MAX SUBARRAY
+    static void maximumSubArrayPrint(int[] nums)
+    {
+        int max=nums[0];
+        int sum=0;
+        int start=0,ansStart=-1,end=-1;
+
+        for (int i = 0; i < nums.length; i++) {
+             if(sum==0)
+                start=i;
+
+         sum+=nums[i];
+
+            if(sum>max)
+               { max=sum;
+                 ansStart=start;
+                 end=i;
+                }
+
+            if (sum<0) 
+                sum=0;
+        }
+      for (int i = ansStart; i <=end; i++) {
+        System.out.print(nums[i]);
+      }
+    }
 
     public static void main(String[] args) {
-       //int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
-       int[] nums = {-2,1,-3};
-
-       approach1(nums);
+        int []nums={-5,-2,1,2,3,4,5};
+    //  System.out.println(maximumSubArrayBetter(nums));
+    //System.out.println(maximumSubArrayOptimal(nums));
+        maximumSubArrayPrint(nums);
     }
-
 }
