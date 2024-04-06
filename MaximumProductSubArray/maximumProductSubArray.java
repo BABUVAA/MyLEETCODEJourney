@@ -38,31 +38,51 @@ public class maximumProductSubArray {
      
     }
 
-    static void maximumProductSubArrayOptimal(int[] nums)
+    static int maximumProductSubArrayOptimal(int[] nums)
     {
         int max=Integer.MIN_VALUE;
-        int maxPro=1;
+        int n=nums.length;
+        int pre=1;
+        int suff=1;
         for(int i=0;i<nums.length;i++)
         {   
-            maxPro*=nums[i];
-            
-            if(maxPro<1)
-                maxPro=nums[i];
-            
-            if(maxPro>max)
-                max=maxPro;
-               
+            if(pre==0)
+                pre=1;
+            if(suff==0)
+             suff=1;    
+            pre*=nums[i];
+            suff*=nums[n-1-i];      
+               max=Math.max(max,Math.max(pre,suff));
+
         }
-      
+      return max;
+     
+    }
+    static void maximumProductSubArrayKadaneOptimal(int[] nums)
+    {
+       // int max=Integer.MIN_VALUE;
+        int prod1 = nums[0],prod2 = nums[0],result = nums[0];
+    
+        for(int i=1;i<nums.length;i++) {
+            System.out.println("i: "+i+" prod1: "+prod1+" prod2: "+prod2+" result: "+result);
+            int temp = Math.max(nums[i],Math.max(prod1*nums[i],prod2*nums[i]));
+            prod2 = Math.min(nums[i],Math.min(prod1*nums[i],prod2*nums[i]));
+            prod1 = temp;
+            
+            result = Math.max(result,prod1);
+        }
+        System.out.println(result);
+     // return result;
      
     }
 
 
+
     public static void main(String[] args) {
-     // System.out.println(maximumProductSubArrayBruteforce(new int[]{-2,0,-1}));
-     //System.out.println(maximumProductSubArrayBetter(new int[]{-2,-1,2}));
-   System.out.println(maximumProductSubArrayBetter(new int[]{-1,0,-2}));
-        
+      //System.out.println(maximumProductSubArrayBruteforce(new int[]{-2,0,2,-4}));
+   // System.out.println(maximumProductSubArrayBetter(new int[]{-2,-4,0,2}));
+  // System.out.println(maximumProductSubArrayOptimal(new int[]{-2,3,-4}));
+    maximumProductSubArrayKadaneOptimal(new int[]{-2,0,2,-4});    
     }
     
 }
