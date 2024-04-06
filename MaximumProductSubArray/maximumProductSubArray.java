@@ -58,13 +58,13 @@ public class maximumProductSubArray {
       return max;
      
     }
-    static void maximumProductSubArrayKadaneOptimal(int[] nums)
+    static int maximumProductSubArrayKadaneOptimal(int[] nums)
     {
-       // int max=Integer.MIN_VALUE;
+    
         int prod1 = nums[0],prod2 = nums[0],result = nums[0];
     
         for(int i=1;i<nums.length;i++) {
-            System.out.println("i: "+i+" prod1: "+prod1+" prod2: "+prod2+" result: "+result);
+            
             int temp = Math.max(nums[i],Math.max(prod1*nums[i],prod2*nums[i]));
             prod2 = Math.min(nums[i],Math.min(prod1*nums[i],prod2*nums[i]));
             prod1 = temp;
@@ -72,7 +72,7 @@ public class maximumProductSubArray {
             result = Math.max(result,prod1);
         }
         System.out.println(result);
-     // return result;
+      return result;
      
     }
 
@@ -82,7 +82,7 @@ public class maximumProductSubArray {
       //System.out.println(maximumProductSubArrayBruteforce(new int[]{-2,0,2,-4}));
    // System.out.println(maximumProductSubArrayBetter(new int[]{-2,-4,0,2}));
   // System.out.println(maximumProductSubArrayOptimal(new int[]{-2,3,-4}));
-    maximumProductSubArrayKadaneOptimal(new int[]{-2,0,2,-4});    
+    maximumProductSubArrayKadaneOptimal(new int[]{-2,0,2,-4,5,6,-2});    
     }
     
 }
