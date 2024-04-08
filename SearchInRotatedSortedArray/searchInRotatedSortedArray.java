@@ -1,7 +1,7 @@
-package SearchInSortedArray;
+package SearchInRotatedSortedArray;
 
-public class searchInSortedArray {
-    private static int searchInSortedArrayBruteForce(int[] nums, int target) {
+public class searchInRotatedSortedArray {
+    private static int searchInRotatedSortedArrayBruteForce(int[] nums, int target) {
         int result=-1;
         for(int i=0;i<nums.length;i++)
         {
@@ -10,7 +10,7 @@ public class searchInSortedArray {
         }
         return result;
     }
-    private static int searchInSortedArrayOptimal(int[] nums, int target) {
+    private static int searchInRotatedSortedArrayOptimal(int[] nums, int target) {
         int result=-1;
         int low=0;
         int high=nums.length-1;
@@ -40,7 +40,7 @@ public class searchInSortedArray {
     public static void main(String[] args) {
         int[]nums={6,7,0,1,2,3,4,5};
         int target=2;
-        int index=searchInSortedArrayOptimal(nums,target);
+        int index=searchInRotatedSortedArrayOptimal(nums,target);
         System.out.println(index);
     }
     
