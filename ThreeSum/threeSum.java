@@ -21,7 +21,6 @@ public class threeSum {
                 }
             }
         }
-        
         return result;
     }
     public static void main(String[] args) {    
