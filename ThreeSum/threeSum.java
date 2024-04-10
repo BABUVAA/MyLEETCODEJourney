@@ -2,6 +2,9 @@ package ThreeSum;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+
+//still in progress not solved
 public class threeSum {
       private static List<List<Integer>> threeSumBrute(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();

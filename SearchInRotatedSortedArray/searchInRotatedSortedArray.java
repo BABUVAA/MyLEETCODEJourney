@@ -40,8 +40,10 @@ public class searchInRotatedSortedArray {
     public static void main(String[] args) {
         int[]nums={6,7,0,1,2,3,4,5};
         int target=2;
-        int index=searchInRotatedSortedArrayOptimal(nums,target);
+        int index=searchInRotatedSortedArrayBruteForce(nums,target);
+        int index1=searchInRotatedSortedArrayOptimal(nums,target);
         System.out.println(index);
+        System.out.println(index1);
     }
     
 }

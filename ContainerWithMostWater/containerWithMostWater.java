@@ -44,6 +44,8 @@ public class containerWithMostWater {
         int []nums={1,1};
         int area=containerWithMostWaterBrute(nums);
         int area1=containerWithMostWaterOptimal(nums);
+       
+        System.out.println(area);
         System.out.println(area1);
     }
     
