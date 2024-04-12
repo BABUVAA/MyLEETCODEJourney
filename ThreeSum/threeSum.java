@@ -1,14 +1,10 @@
 package ThreeSum;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
-
-
-//still in progress not solved
 public class threeSum {
       private static List<List<Integer>> threeSumBrute(int[] nums) {
         List<List<Integer>> result=new ArrayList<>();
-        HashSet<List<Integer>> res=new HashSet<>();
         for(int i=0;i<nums.length;i++)
         {
             for(int j=i+1;j<nums.length;j++)
@@ -17,17 +13,27 @@ public class threeSum {
                 {
                     if((nums[i]+nums[j]+nums[k])==0)
                     {
-                      System.out.println("["+nums[i]+","+nums[j]+","+nums[k]+"]");
-                        res.add(List.of(nums[i],nums[j],nums[k]));
-                        
+                      List<Integer> ls=new ArrayList<>();
+                      ls.add(nums[i]);
+                      ls.add(nums[j]);
+                      ls.add(nums[k]);
+                      Collections.sort(ls);
+                        if(!result.contains(ls))
+                        {
+                          result.add(ls);
+                        }
                     }
                 }
             }
         }
         return result;
     }
-    public static void main(String[] args) {    
-      threeSumBrute(new int[]{-1,1,2,4,-2,-2,3,-3,-4}); 
-
+    public static void main(String[] args) {   
+      List<List<Integer>> result=  threeSumBrute(new int[]{-1,1,2,4,-2,-2,3,-3,-4}); 
+      for (List<Integer> list : result) {
+        for (int k : list) {
+          System.out.print(k+",");
+        }System.out.println();
+      }
     }
 }
