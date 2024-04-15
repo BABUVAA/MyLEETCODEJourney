@@ -12,15 +12,54 @@ public class missingNumber {
                 return i;         
               }
       }
-
       return 0;
     }
-    public static void main(String[] args) {
-       // int [] nums={9,6,4,2,3,5,7,0,1};
-       int [] nums={0,1}; 
-       int missing=missingNumberBruteforce(nums);
-        System.out.println(missing);
+    private static int missingNumberBetter(int[] nums) {
+    int sum=(nums.length*(nums.length+1))/2;
+
+    System.out.println();
+    for (int i = 0; i < nums.length; i++) {
+        sum-=nums[i];     
+    } 
+    return sum;
     }
+
+    private static int missingNumberOptimal(int[] nums){
+        int sum=0;
+        for (int i = 0; i < nums.length; i++) {
+                sum+=nums[i];
+                }  
+                System.out.println(sum); 
+                sum=sum^((nums.length*(nums.length-1))/2);
+           
+            System.out.println(sum);
+        return sum;
+    }
+    private static int missingNumberOptimalSec(int[] nums){
+        int sum=0;
+                for (int i = 0; i <=nums.length; i++) {
+                sum^=i;
+                }  
+                for (int num : nums) {
+                    sum^=num;
+                }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int [] nums={9,6,4,2,3,5,7,0,1};
+      // int [] nums={0,1}; 
+       int missing=missingNumberBruteforce(nums);
+       //int missing1=missingNumberBetter(nums);
+       int missing2=missingNumberOptimalSec(nums);
+
+        System.out.println(missing2);
+    }
+   
+
+
+
+   
 
     
 }
