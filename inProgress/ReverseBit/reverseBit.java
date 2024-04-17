@@ -1,4 +1,4 @@
-package ReverseBit;
+package inProgress.ReverseBit;
 
 public class reverseBit {
     private static long reverseBits(long n) {
