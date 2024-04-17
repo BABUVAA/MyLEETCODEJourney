@@ -26,17 +26,6 @@ public class missingNumber {
 
     private static int missingNumberOptimal(int[] nums){
         int sum=0;
-        for (int i = 0; i < nums.length; i++) {
-                sum+=nums[i];
-                }  
-                System.out.println(sum); 
-                sum=sum^((nums.length*(nums.length-1))/2);
-           
-            System.out.println(sum);
-        return sum;
-    }
-    private static int missingNumberOptimalSec(int[] nums){
-        int sum=0;
                 for (int i = 0; i <=nums.length; i++) {
                 sum^=i;
                 }  
@@ -50,9 +39,10 @@ public class missingNumber {
         int [] nums={9,6,4,2,3,5,7,0,1};
       // int [] nums={0,1}; 
        int missing=missingNumberBruteforce(nums);
-       //int missing1=missingNumberBetter(nums);
-       int missing2=missingNumberOptimalSec(nums);
-
+       int missing1=missingNumberBetter(nums);
+       int missing2=missingNumberOptimal(nums);
+        System.out.println(missing);
+        System.out.println(missing1);
         System.out.println(missing2);
     }
    
