@@ -2,25 +2,31 @@ package inProgress.ClimbingStairs;
 
 public class climbingStairs {
     private static int climbingStairs(int n) {
-        int way=1;
-        if(n==2)
-        {return 2;}
-        int a=n,b=n-1;
-        while(a>1)
-        {
-            a-=2;
-            way++;
-        }
-        while(b>1)
-        {way++;
-            b-=2;
-        }
-
-        return way;
+        if(n<=1)
+            return 1;
         
+        int op1=climbingStairs(n-1);
+        int op2=climbingStairs(n-2);
+        return op1+op2;
+
     }
+    
+    private static int climbingStairsOptimal(int n, int[]memo) {
+        if(n<=1)
+            return 1;
+        if(memo[n]>0)
+        return memo[n];
+        int op1=climbingStairsOptimal(n-1,memo);
+        int op2=climbingStairsOptimal(n-2,memo);
+        memo[n]=op1+op2;
+        return op1+op2;
+
+    }
+
     public static void main(String[] args) {
         int n=5;
+        int []memo=new int[n+1];
+        System.out.println(climbingStairsOptimal(n,memo));
         System.out.println(climbingStairs(n));
         
     }
