@@ -1,12 +1,12 @@
-package inProgress.ClimbingStairs;
+package ClimbingStairs;
 
 public class climbingStairs {
-    private static int climbingStairs(int n) {
+    private static int climbingStairsRec(int n) {
         if(n<=1)
             return 1;
         
-        int op1=climbingStairs(n-1);
-        int op2=climbingStairs(n-2);
+        int op1=climbingStairsRec(n-1);
+        int op2=climbingStairsRec(n-2);
         return op1+op2;
 
     }
@@ -27,7 +27,7 @@ public class climbingStairs {
         int n=5;
         int []memo=new int[n+1];
         System.out.println(climbingStairsOptimal(n,memo));
-        System.out.println(climbingStairs(n));
+        System.out.println(climbingStairsRec(n));
         
     }
 
