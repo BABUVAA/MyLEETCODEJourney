@@ -33,7 +33,7 @@ public class findMininmumInSortedArray {
 
  
     public static void main(String[] args) {
-        int []nums={4,5,1,2,3,4};
+        int []nums={4,5,12,3,4};
         System.out.println(findMininmumInSortedArrayBruteForce(nums));
        System.out.println(findMininmumInSortedArrayOptimal(nums));
     }
